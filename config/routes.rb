@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+#get 'dashboard/index'
+
+#get 'home/index'
+devise_for :users
 resources :jobs
 root 'jobs#index'
 
