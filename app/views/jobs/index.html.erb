@@ -1,9 +1,28 @@
 <h1>Jobs</h1>
-<% @jobs.each do |job| %>
-  <div class="job">
-    <h2><%= link_to job.title, job.url %></h2>
-    <p><%= job.company %>
-  </div>
-<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Company</th>
+      <th>Url</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @jobs.each do |job| %>
+      <tr>
+        <td><%= job.title %></td>
+        <td><%= job.company %></td>
+        <td><%= link_to job.title, job.url %></td>
+        <td><%= link_to 'Show', job %></td>
+        <td><%= link_to 'Edit', edit_job_path(job) %></td>
+        <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <p><%= link_to "Add a job", new_job_path %></p>
 <p><%= paginate @jobs %></p>
